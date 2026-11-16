@@ -8,6 +8,16 @@ It runs on Android. It does not run on iPhone.
 
 The app watches on-screen buttons through an Accessibility Service. It does not read or save messages, and it has no internet permission.
 
+## Why Android shows a risk warning
+
+When the switch is turned on, Android says the app might put financial or personal information at risk. Android shows that sentence for every app that can see the screen and tap buttons. It cannot see that IG Gate only acts inside Instagram and YouTube.
+
+The app has no API key and no internet permission. It does not read banking apps, passwords, or message text. The warning still appears. That is Android's own dialog, and the app cannot hide it.
+
+## Security
+
+No API keys, passwords, or signing keys belong in this repo. Cloud backup and device transfer of app data are off. Cleartext network traffic is blocked. The service is limited to the Instagram and YouTube packages.
+
 ## One-time setup
 
 1. Install the app.
