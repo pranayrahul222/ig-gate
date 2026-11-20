@@ -1,17 +1,12 @@
 package com.rahulpranaya.iggate;
 
 import android.app.Activity;
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -22,28 +17,23 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public final class MainActivity extends Activity {
-    private static final String INSTAGRAM = "com.instagram.android";
-
-    private TextView status;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        status = findViewById(R.id.status);
-        Button allow = findViewById(R.id.allow_access);
-        Button open = findViewById(R.id.open_instagram);
+        Button openInstagram = findViewById(R.id.open_instagram);
+        Button openYouTube = findViewById(R.id.open_youtube);
         Button share = findViewById(R.id.share_app);
-        allow.setOnClickListener(new View.OnClickListener() {
+        openInstagram.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openAccessibilitySettings();
+                openSite(UrlPolicy.INSTAGRAM_HOME);
             }
         });
-        open.setOnClickListener(new View.OnClickListener() {
+        openYouTube.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openInstagram();
+                openSite(UrlPolicy.YOUTUBE_HOME);
             }
         });
         share.setOnClickListener(new View.OnClickListener() {
@@ -54,29 +44,10 @@ public final class MainActivity extends Activity {
         });
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        status.setText(guardEnabled() ? R.string.status_on : R.string.status_off);
-    }
-
-    private boolean guardEnabled() {
-        String enabled = Settings.Secure.getString(
-                getContentResolver(),
-                Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-        if (enabled == null) {
-            return false;
-        }
-        String flat = new ComponentName(this, GateService.class).flattenToString();
-        return enabled.toLowerCase().contains(flat.toLowerCase());
-    }
-
-    private void openAccessibilitySettings() {
-        try {
-            startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS));
-        } catch (ActivityNotFoundException notFound) {
-            Toast.makeText(this, R.string.accessibility_missing, Toast.LENGTH_LONG).show();
-        }
+    private void openSite(String url) {
+        Intent browser = new Intent(this, BrowserActivity.class);
+        browser.putExtra(BrowserActivity.EXTRA_START, url);
+        startActivity(browser);
     }
 
     private void shareApp() {
@@ -119,15 +90,5 @@ public final class MainActivity extends Activity {
         } finally {
             in.close();
         }
-    }
-
-    private void openInstagram() {
-        PackageManager packages = getPackageManager();
-        Intent launch = packages.getLaunchIntentForPackage(INSTAGRAM);
-        if (launch == null) {
-            Toast.makeText(this, R.string.instagram_missing, Toast.LENGTH_LONG).show();
-            return;
-        }
-        startActivity(launch);
     }
 }

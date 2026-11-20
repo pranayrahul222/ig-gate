@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">IG Gate</string>
-    <string name="service_description">Only runs while Instagram or YouTube is open. It reads tab names so it can leave Reels, Search, and Shorts. It does not read messages, passwords, or banking apps, and it has no internet access.</string>
-    <string name="status_on">Guard is on</string>
-    <string name="status_off">Guard is off</string>
-    <string name="allow_access">Allow access</string>
     <string name="open_instagram">Open Instagram</string>
+    <string name="open_youtube">Open YouTube</string>
     <string name="share_app">Share app</string>
     <string name="share_title">Share IG Gate</string>
     <string name="share_failed">Could not prepare the install file.</string>
-    <string name="instagram_missing">Instagram is not installed on this phone.</string>
-    <string name="what_it_does">What this app does\n\nYou keep the normal Instagram app.\n\nStays open\n• Home\n• Messages\n• Stories\n• A reel a friend sent inside a chat\n\nSearch sends you to your messages.\n\nReels and Shorts\nFive in one go stay open.\nThe next one sends you to that app’s Home.\nInstagram goes to Instagram Home. YouTube goes to YouTube Home.\nLeave the reel screen and the count starts over.\nA reel a friend sent in a chat still plays. Swipe past five and you go to Instagram Home.\n\nAndroid phones only. This does not run on an iPhone.\n\nAndroid shows a warning that this access could see personal or financial info. Android shows that for every app that can see the screen. IG Gate has no internet access and does not read banks, passwords, or messages.</string>
-    <string name="help">Turn it on once\n1. Tap Allow access. Open IG Gate in that list and switch it on.\n2. If Android blocks the switch: Settings, Apps, IG Gate, the corner menu, Allow restricted settings.\n\nShare app sends IG-Gate.apk. The other phone must be Android. They install the file, then turn IG Gate on the same way.</string>
-    <string name="accessibility_missing">Open Settings, then Accessibility, then turn on IG Gate.</string>
-    <string name="paused">IG Gate paused for a moment. Open Home or your messages yourself.</string>
+    <string name="what_it_does">What this app does\n\nInstagram and YouTube open inside this app.\n\nStays open\n• Home\n• Messages\n• Stories\n• A normal YouTube video\n\nA Reels page goes back to Instagram Home.\nSearch and Explore open your messages.\nA Shorts page goes back to YouTube Home.\n\nThis app cannot see other apps. It does not read your screen and it does not tap buttons. Google Pay can stay on the phone.\n\nAndroid phones only. This does not run on an iPhone.\n\nSign in once on the page that opens. Alerts from the website are weak. The normal Instagram app can stay installed for alerts. Open Instagram from here when you want Reels blocked.</string>
+    <string name="help">Share app sends IG-Gate.apk. The other phone must be Android.</string>
 </resources>

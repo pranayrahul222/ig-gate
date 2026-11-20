@@ -29,29 +29,19 @@
             android:textColor="@color/ink"
             android:textSize="17sp" />
 
-        <TextView
-            android:id="@+id/status"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="28dp"
-            android:paddingBottom="20dp"
-            android:text="@string/status_off"
-            android:textColor="@color/ink"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-        <Button
-            android:id="@+id/allow_access"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/allow_access" />
-
         <Button
             android:id="@+id/open_instagram"
+            android:layout_marginTop="28dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/open_instagram" />
+
+        <Button
+            android:id="@+id/open_youtube"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="@string/open_instagram" />
+            android:text="@string/open_youtube" />
 
         <Button
             android:id="@+id/share_app"

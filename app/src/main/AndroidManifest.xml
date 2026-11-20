@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <queries>
-        <package android:name="com.instagram.android" />
-        <package android:name="com.google.android.youtube" />
-    </queries>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="false"
@@ -27,22 +24,14 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".BrowserActivity"
+            android:exported="false" />
+
         <provider
             android:name=".ApkProvider"
             android:authorities="com.rahulpranaya.iggate.apk"
             android:exported="false"
             android:grantUriPermissions="true" />
-
-        <service
-            android:name=".GateService"
-            android:exported="true"
-            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
-            <intent-filter>
-                <action android:name="android.accessibilityservice.AccessibilityService" />
-            </intent-filter>
-            <meta-data
-                android:name="android.accessibilityservice"
-                android:resource="@xml/accessibility_service_config" />
-        </service>
     </application>
 </manifest>
